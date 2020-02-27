@@ -1,0 +1,28 @@
+yeet yeet yeet yeet
+
+strtok
+
+check for special characters like:
+" ."/" . "
+;
+'
+"
+<
+>
+>>
+|
+($SOMETHING) inserts the variable pointed to
+$? (return the last closed functions return)
+handle signals:
+CNTRL-C
+CNTRL-D
+CNTRL-\
+
+create:
+echo (this takes an argument, doesnt read from stdin)
+cd	
+pwd
+export
+unset
+env
+exit
