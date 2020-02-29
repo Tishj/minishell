@@ -1,0 +1,2627 @@
+make: 'libext.a' is up to date.
+# GNU Make 4.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2014 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sat Feb 29 14:41:50 2020
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+RUBY_VERSION = ruby-2.6.3
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 218)
+OBJ = $(SRC:.c=.o)
+# makefile (from 'Makefile', line 35)
+SRC = $(addprefix $(CHR_DIR), ft_chrmatchc.c ft_chrmatchs.c ft_chrmatchr.c ft_chrcprint.c ft_chrcprintfd.c ft_chrprint.c ft_chrprintc.c ft_chrprintfd.c ft_chrprintfdc.c ft_chrprintfds.c ft_chrprints.c ft_chrsprint.c ft_chrswapc.c ft_chrmatchw.c) $(addprefix $(FD_DIR), ft_fdchar.c ft_fdcchar.c ft_fdstrc.c) $(addprefix $(LST_DIR), ft_lstindex.c ft_lstinfix.c ft_lstlen.c ft_lstnew.c ft_lstnptr.c ft_lstprint.c ft_lstprefix.c ft_lstprev.c ft_lstptr.c ft_lstrev.c ft_lstsuffix.c ft_lstdel.c ft_lstcmp.c ft_dlstaddback.c ft_dlstaddbehind.c ft_dlstaddfront.c ft_dlstaddinfront.c ft_dlstclear.c ft_dlstclearleft.c ft_dlstclearright.c ft_dlstdel.c ft_dlstnew.c ft_dlstprint.c ft_dlstswap.c ft_plstnew.c ft_plstptr.c ft_plstsuffix.c ft_plstprefix.c ft_lstswap.c) $(addprefix $(NUM_DIR), ft_numprint.c ft_numprintbase.c ft_absnum.c) $(addprefix $(MEM_DIR), ft_calloc.c ft_memclen.c ft_memslen.c ft_memdup.c ft_memcdup.c ft_memmove.c ft_memset.c) $(addprefix $(STK_DIR), ft_stkpush.c ft_stkpop.c ft_pstkpop.c ft_pstkpush.c) $(addprefix $(QUE_DIR), ft_quepush.c ft_quepop.c ft_pquepop.c ft_pquepush.c) $(addprefix $(STR_DIR), ft_str2del.c $(addprefix lenf/, ft_len.c ft_limitcheck.c ft_countcheck.c ft_data_count.c ft_data_init.c ft_data_limit.c ft_data_parse.c ft_strlenf.c) ft_strsep.c ft_strtok.c ft_str2len.c ft_str2print.c ft_stradd.c ft_straddc.c ft_straddn.c ft_straddr.c ft_strcat.c ft_strcatc.c ft_strcmp.c ft_strccmp.c ft_strncmp.c ft_strcdup.c ft_strcdups.c ft_strchain.c ft_strclenr.c ft_strclenrevc.c ft_strclenrevr.c ft_strclenrevs.c ft_strlenr.c ft_strnlenr.c ft_strnlenrevr.c ft_strnlenrevs.c ft_strrlenb.c ft_strrlenrev.c ft_strrlenrevc.c ft_strrlenrevs.c ft_strslenr.c ft_strslenrevc.c ft_strslenrevr.c ft_strslenrevs.c ft_strwlenb.c ft_strwlenc.c ft_strwlenr.c ft_strwlenrev.c ft_strwlenrevc.c ft_strwlenrevr.c ft_strwlenrevs.c ft_strwlens.c ft_strstr.c ft_strnstr.c ft_str2dup.c ft_str2prefix.c ft_str2suffix.c ft_strgenc.c ft_strnlenb.c ft_strnprint.c ft_strnump.c ft_strwprint.c ft_strinfix.c ft_strchaindelimc.c ft_strclen.c ft_strclenb.c ft_strclenc.c ft_strclenrev.c ft_strclens.c ft_strcpy.c ft_strdup.c ft_strdupc.c ft_strdups.c ft_strlen.c ft_strlenc.c ft_strlens.c ft_strlenw.c ft_strmatchc.c ft_strnadd.c ft_strncat.c ft_strncpy.c ft_strndup.c ft_strnlen.c ft_strnlenc.c ft_strnlens.c ft_strnskip.c ft_strprefix.c ft_strprint.c ft_strrev.c ft_strrlen.c ft_strrlenc.c ft_strrlens.c ft_strsadd.c ft_strscat.c ft_strscpy.c ft_strsdup.c ft_strskipc.c ft_strskips.c ft_strskipw.c ft_strnskipc.c ft_strnskipr.c ft_strnskips.c ft_strnskipw.c ft_strskipr.c ft_strshift.c ft_strslen.c ft_strslenb.c ft_strnlenrevc.c ft_strslenc.c ft_strslenrev.c ft_strslens.c ft_strcsplit.c ft_strssplit.c ft_strnsplit.c ft_strwsplit.c ft_strsuffix.c ft_strtrims.c ft_strtrimsf.c ft_strwdup.c ft_strwlen.c)
+# makefile (from 'Makefile', line 31)
+QUE_DIR = que/
+# default
+CWEAVE = cweave
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+rvm_path = /home/tishj/.rvm
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /mnt/c/Users/Thijs/Desktop/codam/git_minishell/lib/libext
+# makefile
+SHELL = /bin/sh
+# default
+RM = rm -f
+# default
+CO = co
+# default
+COMPILE.mod = $(M2C) $(M2FLAGS) $(MODFLAGS) $(TARGET_ARCH)
+# environment
+_ = /usr/bin/make
+# default
+PREPROCESS.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -F
+# default
+LINK.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# default
+LINK.o = $(CC) $(LDFLAGS) $(TARGET_ARCH)
+# default
+OUTPUT_OPTION = -o $@
+# default
+COMPILE.cpp = $(COMPILE.cc)
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from 'Makefile', line 32)
+STK_DIR = stk/
+# 'override' directive
+GNUMAKEFLAGS := 
+# default
+LINK.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 17)
+OBJ_DIR = obj/
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# default
+CC = cc
+# default
+CHECKOUT,v = +$(if $(wildcard $@),,$(CO) $(COFLAGS) $< $@)
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# default
+CPP = $(CC) -E
+# default
+LINK.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/tishj/.brew/bin:/home/tishj/.brew/bin:/home/tishj/.vscode-server/bin/c47d83b293181d9be64f27ff093689e8e7aed054/bin:/home/tishj/.rvm/gems/ruby-2.6.3/bin:/home/tishj/.rvm/gems/ruby-2.6.3@global/bin:/home/tishj/.rvm/rubies/ruby-2.6.3/bin:/home/tishj/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files (x86)/Skype/Phone/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/QuickTime/QTSystem/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/Autodesk/Backburner/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/nodejs/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/":/%JAVA_HOME%/bin":/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Thijs/AppData/Local/Programs/Python/Python37/Scripts/:/mnt/c/Users/Thijs/AppData/Local/Programs/Python/Python37/:/mnt/c/Users/Thijs/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Thijs/AppData/Roaming/npm:/mnt/c/Users/Thijs/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Administrator/Ubuntu:/snap/bin:/home/tishj/.rvm/bin:/home/tishj/.rvm/bin:/home/tishj/.rvm/bin
+# default
+LD = ld
+# makefile (from 'Makefile', line 28)
+MEM_DIR = mem/
+# default
+TEXI2DVI = texi2dvi
+# default
+YACC = yacc
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+rvm_stored_umask = 0000
+# makefile (from 'Makefile', line 29)
+NUM_DIR = num/
+# default
+ARFLAGS = rv
+# default
+LINK.r = $(FC) $(FFLAGS) $(RFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# default
+LINT = lint
+# default
+COMPILE.f = $(FC) $(FFLAGS) $(TARGET_ARCH) -c
+# default
+LINT.c = $(LINT) $(LINTFLAGS) $(CPPFLAGS) $(TARGET_ARCH)
+# default
+YACC.m = $(YACC) $(YFLAGS)
+# default
+YACC.y = $(YACC) $(YFLAGS)
+# default
+AR = ar
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# default
+TANGLE = tangle
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# default
+GET = get
+# automatic
+%F = $(notdir $%)
+# environment
+HOMEBREW_TEMP = /tmp/tishj/Homebrew/Temp
+# environment
+DISPLAY = localhost:0.0
+# default
+COMPILE.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+CTANGLE = ctangle
+# default
+.LIBPATTERNS = lib%.so lib%.a
+# environment
+rvm_bin_path = /home/tishj/.rvm/bin
+# environment
+PWD = /mnt/c/Users/Thijs/Desktop/codam/git_minishell/lib/libext
+# environment
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-04c8fce1-5919-4eee-8e3a-949ff994b969.sock
+# default
+LINK.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# environment
+GEM_HOME = /home/tishj/.rvm/gems/ruby-2.6.3
+# default
+PREPROCESS.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -F
+# environment
+PKG_CONFIG_PATH = /mnt/c/users/thijs/desktop/codam/miniRT/minilibx_linux
+# default
+LINK.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# makefile (from 'Makefile', line 16)
+INCL_DIR = incl/
+# makefile (from 'Makefile', line 27)
+CHR_DIR = chr/
+# default
+LINK.s = $(CC) $(ASFLAGS) $(LDFLAGS) $(TARGET_MACH)
+# environment
+HOME = /home/tishj
+# makefile (from 'Makefile', line 26)
+STR_DIR = str/
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+LOGNAME = tishj
+# makefile (from 'Makefile', line 33)
+FD_DIR = fd/
+# environment
+ZSH = /home/tishj/.oh-my-zsh
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# environment
+GEM_PATH = /home/tishj/.rvm/gems/ruby-2.6.3:/home/tishj/.rvm/gems/ruby-2.6.3@global
+# default
+COMPILE.m = $(OBJC) $(OBJCFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# environment
+VERBOSE_LOGGING = true
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := libext.a
+# environment
+IRBRC = /home/tishj/.rvm/rubies/ruby-2.6.3/.irbrc
+# environment
+SHLVL = 5
+# default
+AS = as
+# default
+PREPROCESS.S = $(CC) -E $(CPPFLAGS)
+# default
+COMPILE.p = $(PC) $(PFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# default
+MAKE_VERSION := 4.1
+# environment
+AMD_ENTRYPOINT = vs/server/remoteExtensionHostProcess
+# environment
+USER = tishj
+# default
+FC = f77
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from 'Makefile', line 13)
+NAME = libext.a
+# environment
+PIPE_LOGGING = true
+# environment
+rvm_version = 1.29.9 (latest)
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+WEAVE = weave
+# default
+MAKE_COMMAND := make
+# default
+LINK.cpp = $(LINK.cc)
+# default
+F77 = $(FC)
+# environment
+OLDPWD = /mnt/c/Users/Thijs/Desktop/codam/git_minishell
+# environment
+TERM_PROGRAM = vscode
+# default
+.VARIABLES := 
+# default
+PC = pc
+# automatic
+*F = $(notdir $*)
+# default
+COMPILE.def = $(M2C) $(M2FLAGS) $(DEFFLAGS) $(TARGET_ARCH)
+# default
+LEX = lex
+# makefile
+MAKEFLAGS = p
+# environment
+MFLAGS = -p
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 1.42.1
+# default
+LEX.l = $(LEX) $(LFLAGS) -t
+# default
+LEX.m = $(LEX) $(LFLAGS) -t
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 30)
+LST_DIR = lst/
+# default
+COMPILE.r = $(FC) $(FFLAGS) $(RFLAGS) $(TARGET_ARCH) -c
+# environment
+rvm_user_install_flag = 1
+# automatic
++F = $(notdir $+)
+# default
+M2C = m2c
+# environment
+HOMEBREW_CACHE = /tmp/tishj/Homebrew/Caches
+# default
+MAKEFILES := 
+# default
+COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# makefile (from 'Makefile', line 15)
+SRC_DIR = src/
+# automatic
+<F = $(notdir $<)
+# default
+CXX = g++
+# default
+COFLAGS = 
+# environment
+PAGER = less
+# default
+LINK.C = $(LINK.cc)
+# default
+COMPILE.C = $(COMPILE.cc)
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+COMPILE.S = $(CC) $(ASFLAGS) $(CPPFLAGS) $(TARGET_MACH) -c
+# default
+LINK.F = $(FC) $(FFLAGS) $(CPPFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+rvm_prefix = /home/tishj
+# default
+SUFFIXES := .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+# default
+COMPILE.c = $(CC) $(CFLAGS) $(CPPFLAGS) $(TARGET_ARCH) -c
+# makefile (from 'Makefile', line 14)
+FLAGS = -Wall -Wextra -Werror
+# default
+COMPILE.s = $(AS) $(ASFLAGS) $(TARGET_MACH)
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+rvm_loaded_flag = 1
+# default
+.RECIPEPREFIX := 
+# default
+MAKEINFO = makeinfo
+# default
+MAKE_TERMERR := /dev/pts/0
+# default
+OBJC = cc
+# default
+TEX = tex
+# environment
+LANG = C.UTF-8
+# environment
+TERM = xterm-256color
+# default
+F77FLAGS = $(FFLAGS)
+# default
+LINK.f = $(FC) $(FFLAGS) $(LDFLAGS) $(TARGET_ARCH)
+# environment
+DOCKER_HOST = tcp://0.0.0.0:2375
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+MY_RUBY_HOME = /home/tishj/.rvm/rubies/ruby-2.6.3
+# variable set hash-table stats:
+# Load=158/1024=15%, Rehash=0, Collisions=21/211=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# SCCS: could not be stat'd.
+# obj (device 14, inode 4503599627889376): 189 files, 3077 impossibilities.
+# . (device 14, inode 384494818186756452): 9 files, 19 impossibilities.
+# src/str/lenf (device 14, inode 3659174697807868): No files, no impossibilities so far.
+# src/str (device 14, inode 7599824371748407): 121 files, 4 impossibilities.
+# obj/SCCS: could not be stat'd.
+# src/lst (device 14, inode 4503599627930763): No files, no impossibilities so far.
+# src/str/SCCS: could not be stat'd.
+# src/mem (device 14, inode 4222124651220323): No files, no impossibilities so far.
+# src/stk (device 14, inode 7881299348459049): No files, no impossibilities so far.
+# obj/RCS: could not be stat'd.
+# obj/src/str (device 0, inode 0): No files, 724 impossibilities.
+# src/num (device 14, inode 3940649674509740): No files, no impossibilities so far.
+# src/str/RCS: could not be stat'd.
+# obj/src/str/SCCS: could not be stat'd.
+# obj/src/str/RCS: could not be stat'd.
+# src/que (device 14, inode 3940649674509827): No files, no impossibilities so far.
+# src/fd (device 14, inode 5066549581352040): No files, no impossibilities so far.
+# src/chr (device 14, inode 4503599627930644): No files, no impossibilities so far.
+# RCS: could not be stat'd.
+
+# 319 files, 3824 impossibilities in 20 directories.
+
+# Implicit Rules
+
+%.o: src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/chr/ src/fd/ src/fd/ src/fd/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/lst/ src/num/ src/num/ src/num/ src/mem/ src/mem/ src/mem/ src/mem/ src/mem/ src/mem/ src/mem/ src/stk/ src/stk/ src/stk/ src/stk/ src/que/ src/que/ src/que/ src/que/ src/str/ src/str/lenf/ src/str/lenf/ src/str/lenf/ src/str/lenf/ src/str/lenf/ src/str/lenf/ src/str/lenf/ src/str/lenf/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/ src/str/%.c
+#  recipe to execute (from 'Makefile', line 227):
+	$(info $@)
+	@gcc -c $(FLAGS) $< -I $(INCL_DIR) -o $(OBJ_DIR)$(notdir $@)
+
+%.out:
+
+%.a:
+
+%.ln:
+
+%.o:
+
+%: %.o
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.c:
+
+%: %.c
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.ln: %.c
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+%.o: %.c
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+%.cc:
+
+%: %.cc
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.cc
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+%.C:
+
+%: %.C
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.C
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+%.cpp:
+
+%: %.cpp
+#  recipe to execute (built-in):
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.cpp
+#  recipe to execute (built-in):
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+%.p:
+
+%: %.p
+#  recipe to execute (built-in):
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.p
+#  recipe to execute (built-in):
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+%.f:
+
+%: %.f
+#  recipe to execute (built-in):
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.f
+#  recipe to execute (built-in):
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+%.F:
+
+%: %.F
+#  recipe to execute (built-in):
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.F
+#  recipe to execute (built-in):
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+%.f: %.F
+#  recipe to execute (built-in):
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+%.m:
+
+%: %.m
+#  recipe to execute (built-in):
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.m
+#  recipe to execute (built-in):
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+%.r:
+
+%: %.r
+#  recipe to execute (built-in):
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.r
+#  recipe to execute (built-in):
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+%.f: %.r
+#  recipe to execute (built-in):
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+%.y:
+
+%.ln: %.y
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+%.c: %.y
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+%.l:
+
+%.ln: %.l
+#  recipe to execute (built-in):
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+%.c: %.l
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+%.r: %.l
+#  recipe to execute (built-in):
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+%.ym:
+
+%.m: %.ym
+#  recipe to execute (built-in):
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+%.yl:
+
+%.s:
+
+%: %.s
+#  recipe to execute (built-in):
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.s
+#  recipe to execute (built-in):
+	$(COMPILE.s) -o $@ $<
+
+%.S:
+
+%: %.S
+#  recipe to execute (built-in):
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+%.o: %.S
+#  recipe to execute (built-in):
+	$(COMPILE.S) -o $@ $<
+
+%.s: %.S
+#  recipe to execute (built-in):
+	$(PREPROCESS.S) $< > $@
+
+%.mod:
+
+%: %.mod
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+%.o: %.mod
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ $<
+
+%.sym:
+
+%.def:
+
+%.sym: %.def
+#  recipe to execute (built-in):
+	$(COMPILE.def) -o $@ $<
+
+%.h:
+
+%.info:
+
+%.dvi:
+
+%.tex:
+
+%.dvi: %.tex
+#  recipe to execute (built-in):
+	$(TEX) $<
+
+%.texinfo:
+
+%.info: %.texinfo
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+%.dvi: %.texinfo
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+%.texi:
+
+%.info: %.texi
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+%.dvi: %.texi
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+%.txinfo:
+
+%.info: %.txinfo
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+%.dvi: %.txinfo
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+%.w:
+
+%.c: %.w
+#  recipe to execute (built-in):
+	$(CTANGLE) $< - $@
+
+%.tex: %.w
+#  recipe to execute (built-in):
+	$(CWEAVE) $< - $@
+
+%.ch:
+
+%.web:
+
+%.p: %.web
+#  recipe to execute (built-in):
+	$(TANGLE) $<
+
+%.tex: %.web
+#  recipe to execute (built-in):
+	$(WEAVE) $<
+
+%.sh:
+
+%: %.sh
+#  recipe to execute (built-in):
+	cat $< >$@ 
+	 chmod a+x $@
+
+%.elc:
+
+%.el:
+
+(%): %
+#  recipe to execute (built-in):
+	$(AR) $(ARFLAGS) $@ $<
+
+%.out: %
+#  recipe to execute (built-in):
+	@rm -f $@ 
+	 cp $< $@
+
+%.c: %.w %.ch
+#  recipe to execute (built-in):
+	$(CTANGLE) $^ $@
+
+%.tex: %.w %.ch
+#  recipe to execute (built-in):
+	$(CWEAVE) $^ $@
+
+%:: %,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%,v
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: RCS/%
+#  recipe to execute (built-in):
+	$(CHECKOUT,v)
+
+%:: s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+%:: SCCS/s.%
+#  recipe to execute (built-in):
+	$(GET) $(GFLAGS) $(SCCS_OUTPUT_OPTION) $<
+
+# 93 implicit rules, 5 (5.4%) terminal.
+
+# Files
+
+# Not a target:
+obj/ft_dlstclearright.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.153816
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strinfix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.7289987
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strclenb.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.9444897
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.web.p:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TANGLE) $<
+
+# Not a target:
+obj/ft_strncpy.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.0247882
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strndup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.1007903
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstnptr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.0689726
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstptr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.3593757
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strncmp.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.8360016
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslenrevs.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.2759783
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstrev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.4298164
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strclenrevs.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.3429767
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_pstkpop.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.8222266
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.l.r:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LEX.l) $< > $@ 
+	 mv -f lex.yy.r $@
+
+# Not a target:
+obj/ft_strcpy.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.233488
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstclear.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.0097252
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strcsplit.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.4096854
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strcmp.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.6900009
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strwlenrevs.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.8539779
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrprintfd.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.9688214
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.ym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.3055196
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstlen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.9197959
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.f.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.f) $(OUTPUT_OPTION) $<
+
+# Not a target:
+obj/ft_strclenrevr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.2699757
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_memmove.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.4647143
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.l:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.m) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.o) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_strrlenrevc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.8479772
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrcprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.6808312
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_memcdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.3917137
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.y:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strwlenb.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.3529779
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.def.sym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.def) -o $@ $<
+
+# Not a target:
+obj/ft_plstptr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.5938157
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrsprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.2583155
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstdel.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.2258462
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstprev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.2863769
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strclenrev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.0894882
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrprintc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.8968434
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_straddc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.3300011
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnlen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.1737951
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstsuffix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.5018107
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.p.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.p) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.p:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.p) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.txinfo.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+obj/ft_chrmatchc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.457833
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnstr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.0759785
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrcprintfd.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.7518507
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.a:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strrlenrev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.7759778
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.yl:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $*.c
+	 $(LEX.l) $< > $*.c
+	$(LINT.c) -i $*.c -o $@
+	 $(RM) $*.c
+
+# Not a target:
+.F.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.F) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.texi.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# Not a target:
+.w.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CTANGLE) $< - $@
+
+# Not a target:
+.texi.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+.ch:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.m.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.m) $(OUTPUT_OPTION) $<
+
+# Not a target:
+obj/ft_data_limit.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.7576667
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.cc:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cc) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_chrprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.8258181
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.cc.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cc) $(OUTPUT_OPTION) $<
+
+# Not a target:
+obj/ft_plstsuffix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.6638452
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.def:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strsadd.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.9797892
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strscat.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.0687894
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES: .out .a .ln .o .c .cc .C .cpp .p .f .F .m .r .y .l .ym .yl .s .S .mod .sym .def .h .info .dvi .tex .texinfo .texi .txinfo .w .ch .web .sh .elc .el
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strmatchc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.8082814
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.c.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.c) $(OUTPUT_OPTION) $<
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:41:37.9883478
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.r.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.r:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.r) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_strslenrevc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.1099771
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strlenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.5932818
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslens.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.3370606
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslenrevr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.1919764
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strlenf.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.8986653
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strlen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.5222819
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstswap.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.8077433
+#  File has been updated.
+#  Successfully updated.
+
+test: all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 223):
+	@gcc main.c -I $(INCL_DIR) -L . -lext
+	./a.out $(ARG1) $(ARG2)
+
+# Not a target:
+obj/ft_strnprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.5089782
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strclen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.8735025
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.5867912
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.ym.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.m) $< 
+	 mv -f y.tab.c $@
+
+# Not a target:
+.y.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 $(LINT.c) -C$* y.tab.c 
+	 $(RM) y.tab.c
+
+# Not a target:
+obj/ft_strtrimsf.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.8416531
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlens.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.9299765
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnlens.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.3167917
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrmatchw.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.4042848
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnadd.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.8802822
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_stradd.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.2590027
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.1423762
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.elc:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.l.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.l) $< > $@
+
+# Not a target:
+obj/ft_strrev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.6687911
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strrlenrevs.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.9209767
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstprefix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.2143768
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strgenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.3659767
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strlenw.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.7372814
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnskipc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.5457896
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_memslen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.2467132
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strchain.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.0530008
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.out:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strwdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.9146531
+#  File has been updated.
+#  Successfully updated.
+
+all: libext.a
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_dlstprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.3728158
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_str2del.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.3152269
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlenr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.4989755
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_memdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.3187439
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.C:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.C) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_strclenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.0175194
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_str2suffix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.292977
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strskipc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.3257911
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.r.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.r) $(OUTPUT_OPTION) $<
+
+# Not a target:
+obj/ft_chrswapc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.3312824
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.S:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.S) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_len.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.3932283
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.texinfo.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# Not a target:
+.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.c) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.w.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(CWEAVE) $< - $@
+
+# Not a target:
+obj/ft_strcat.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.547001
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.c.ln:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINT.c) -C$* $<
+
+# Not a target:
+.s.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.s) -o $@ $<
+
+# Not a target:
+.s:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.s) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+fclean: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 239):
+	rm -rf $(NAME)
+
+# Not a target:
+obj/ft_plstprefix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.7357378
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strsuffix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.6936832
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_fdcchar.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.5622849
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrprints.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.1853136
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstaddinfront.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.9397289
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_memset.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.5767152
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslenb.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.0480579
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strncat.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.9527888
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_fdstrc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.673284
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnskip.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.3898184
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.9750602
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_str2dup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.1469995
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.texinfo.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEXI2DVI) $(TEXI2DVI_FLAGS) $<
+
+# Not a target:
+.el:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strskips.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.40279
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.4249772
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strclens.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.1614879
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.lm.m:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	@$(RM) $@ 
+	 $(LEX.m) $< > $@
+
+# Not a target:
+obj/ft_strclenrevc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.1980061
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strskipw.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.4747894
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnlenrevc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.1190581
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strrlens.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.9087886
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.y.c:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(YACC.y) $< 
+	 mv -f y.tab.c $@
+
+# Not a target:
+obj/ft_strcatc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.6180021
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.web.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(WEAVE) $<
+
+# Not a target:
+obj/ft_strnlenrevr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.5599796
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.texinfo:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strwprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.6520057
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstaddback.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.7157279
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.h:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strssplit.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.4796531
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnskips.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.685549
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnump.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.5809766
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strcdups.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.9810317
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strrlen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.752791
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strstr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.0039768
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_data_init.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.6852571
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslenr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.0139778
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslenrev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.2650858
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strsep.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.9700041
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstdel.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.5737863
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_quepop.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.0432251
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstnew.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.2978443
+#  File has been updated.
+#  Successfully updated.
+
+re: fclean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_chrmatchs.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.5348323
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.tex.dvi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(TEX) $<
+
+# Not a target:
+obj/ft_strnlenrevs.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.631978
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_data_parse.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.8286658
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.cpp.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.cpp) $(OUTPUT_OPTION) $<
+
+# Not a target:
+.cpp:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_strnsplit.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.5506547
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_str2prefix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.2200189
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.C.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.C) $(OUTPUT_OPTION) $<
+
+# Not a target:
+obj/ft_strnskipw.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.7585517
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.985653
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.texi:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_dlstclearleft.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.0816973
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_countcheck.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.5412517
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.txinfo:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_memclen.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.1737138
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_quepush.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.9662258
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.tex:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_str2print.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.1880016
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_fdchar.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.4872835
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstcmp.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.6448182
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlenrevr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.772979
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.txinfo.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(MAKEINFO) $(MAKEINFO_FLAGS) $< -o $@
+
+# Not a target:
+obj/ft_strrlenb.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.7049758
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strprefix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.4667919
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_straddn.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.4000012
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strcdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.9070021
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strrlenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.8317904
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_straddr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.4740008
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strclenr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.1260009
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrmatchr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:09.6088303
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strlens.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.6652813
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_numprintbase.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.9537433
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_numprint.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.8807468
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstnew.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.9977942
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_pquepop.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.1522282
+#  File has been updated.
+#  Successfully updated.
+
+libext.a: obj/ft_chrmatchc.o obj/ft_chrmatchs.o obj/ft_chrmatchr.o obj/ft_chrcprint.o obj/ft_chrcprintfd.o obj/ft_chrprint.o obj/ft_chrprintc.o obj/ft_chrprintfd.o obj/ft_chrprintfdc.o obj/ft_chrprintfds.o obj/ft_chrprints.o obj/ft_chrsprint.o obj/ft_chrswapc.o obj/ft_chrmatchw.o obj/ft_fdchar.o obj/ft_fdcchar.o obj/ft_fdstrc.o obj/ft_lstindex.o obj/ft_lstinfix.o obj/ft_lstlen.o obj/ft_lstnew.o obj/ft_lstnptr.o obj/ft_lstprint.o obj/ft_lstprefix.o obj/ft_lstprev.o obj/ft_lstptr.o obj/ft_lstrev.o obj/ft_lstsuffix.o obj/ft_lstdel.o obj/ft_lstcmp.o obj/ft_dlstaddback.o obj/ft_dlstaddbehind.o obj/ft_dlstaddfront.o obj/ft_dlstaddinfront.o obj/ft_dlstclear.o obj/ft_dlstclearleft.o obj/ft_dlstclearright.o obj/ft_dlstdel.o obj/ft_dlstnew.o obj/ft_dlstprint.o obj/ft_dlstswap.o obj/ft_plstnew.o obj/ft_plstptr.o obj/ft_plstsuffix.o obj/ft_plstprefix.o obj/ft_lstswap.o obj/ft_numprint.o obj/ft_numprintbase.o obj/ft_absnum.o obj/ft_calloc.o obj/ft_memclen.o obj/ft_memslen.o obj/ft_memdup.o obj/ft_memcdup.o obj/ft_memmove.o obj/ft_memset.o obj/ft_stkpush.o obj/ft_stkpop.o obj/ft_pstkpop.o obj/ft_pstkpush.o obj/ft_quepush.o obj/ft_quepop.o obj/ft_pquepop.o obj/ft_pquepush.o obj/ft_str2del.o obj/ft_len.o obj/ft_limitcheck.o obj/ft_countcheck.o obj/ft_data_count.o obj/ft_data_init.o obj/ft_data_limit.o obj/ft_data_parse.o obj/ft_strlenf.o obj/ft_strsep.o obj/ft_strtok.o obj/ft_str2len.o obj/ft_str2print.o obj/ft_stradd.o obj/ft_straddc.o obj/ft_straddn.o obj/ft_straddr.o obj/ft_strcat.o obj/ft_strcatc.o obj/ft_strcmp.o obj/ft_strccmp.o obj/ft_strncmp.o obj/ft_strcdup.o obj/ft_strcdups.o obj/ft_strchain.o obj/ft_strclenr.o obj/ft_strclenrevc.o obj/ft_strclenrevr.o obj/ft_strclenrevs.o obj/ft_strlenr.o obj/ft_strnlenr.o obj/ft_strnlenrevr.o obj/ft_strnlenrevs.o obj/ft_strrlenb.o obj/ft_strrlenrev.o obj/ft_strrlenrevc.o obj/ft_strrlenrevs.o obj/ft_strslenr.o obj/ft_strslenrevc.o obj/ft_strslenrevr.o obj/ft_strslenrevs.o obj/ft_strwlenb.o obj/ft_strwlenc.o obj/ft_strwlenr.o obj/ft_strwlenrev.o obj/ft_strwlenrevc.o obj/ft_strwlenrevr.o obj/ft_strwlenrevs.o obj/ft_strwlens.o obj/ft_strstr.o obj/ft_strnstr.o obj/ft_str2dup.o obj/ft_str2prefix.o obj/ft_str2suffix.o obj/ft_strgenc.o obj/ft_strnlenb.o obj/ft_strnprint.o obj/ft_strnump.o obj/ft_strwprint.o obj/ft_strinfix.o obj/ft_strchaindelimc.o obj/ft_strclen.o obj/ft_strclenb.o obj/ft_strclenc.o obj/ft_strclenrev.o obj/ft_strclens.o obj/ft_strcpy.o obj/ft_strdup.o obj/ft_strdupc.o obj/ft_strdups.o obj/ft_strlen.o obj/ft_strlenc.o obj/ft_strlens.o obj/ft_strlenw.o obj/ft_strmatchc.o obj/ft_strnadd.o obj/ft_strncat.o obj/ft_strncpy.o obj/ft_strndup.o obj/ft_strnlen.o obj/ft_strnlenc.o obj/ft_strnlens.o obj/ft_strnskip.o obj/ft_strprefix.o obj/ft_strprint.o obj/ft_strrev.o obj/ft_strrlen.o obj/ft_strrlenc.o obj/ft_strrlens.o obj/ft_strsadd.o obj/ft_strscat.o obj/ft_strscpy.o obj/ft_strsdup.o obj/ft_strskipc.o obj/ft_strskips.o obj/ft_strskipw.o obj/ft_strnskipc.o obj/ft_strnskipr.o obj/ft_strnskips.o obj/ft_strnskipw.o obj/ft_strskipr.o obj/ft_strshift.o obj/ft_strslen.o obj/ft_strslenb.o obj/ft_strnlenrevc.o obj/ft_strslenc.o obj/ft_strslenrev.o obj/ft_strslens.o obj/ft_strcsplit.o obj/ft_strssplit.o obj/ft_strnsplit.o obj/ft_strwsplit.o obj/ft_strsuffix.o obj/ft_strtrims.o obj/ft_strtrimsf.o obj/ft_strwdup.o obj/ft_strwlen.o
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Last modified 2020-02-29 14:33:23.1276526
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 231):
+	$(info Compiling $(NAME) ..)
+	@ar -rcs $(NAME) $(addprefix $(OBJ_DIR), $(notdir $(OBJ)))
+	$(info Succesfully compiled $(NAME) !)
+
+# Not a target:
+.sh:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	cat $< >$@ 
+	 chmod a+x $@
+
+# Not a target:
+obj/ft_data_count.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.6122258
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstswap.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.444818
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstindex.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.7542861
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_stkpop.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.7412281
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnlenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:20.2447896
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.S.s:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.S) $< > $@
+
+# Not a target:
+.mod:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ -e $@ $^
+
+# Not a target:
+obj/ft_pquepush.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.2322276
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strccmp.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.7610021
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_lstinfix.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.8392857
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_absnum.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.0287145
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strlenr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.4150069
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.mod.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.mod) -o $@ $<
+
+# Not a target:
+obj/ft_strtok.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.042001
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.F.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(PREPROCESS.F) $(OUTPUT_OPTION) $<
+
+# Not a target:
+obj/ft_strshift.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.9015488
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrprintfdc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.0412843
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_pstkpush.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.8952261
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.w:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_plstnew.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:12.5178485
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstaddfront.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.8647573
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.S.o:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(COMPILE.S) -o $@ $<
+
+# Not a target:
+obj/ft_calloc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.1047131
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strtrims.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.7666535
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_stkpush.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:13.6587149
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_str2len.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:15.1150016
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnlenr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:16.4849769
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_limitcheck.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:14.4692262
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlenrevc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.6919766
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_dlstaddbehind.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:11.7917574
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strslenc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.1930589
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_chrprintfds.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:10.114313
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnlenb.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.4370052
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.F:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.F) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+obj/ft_strchaindelimc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:18.8014889
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strscpy.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.1697897
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.web:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strdupc.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.3784901
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strnskipr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.6160403
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.sym:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 236):
+	rm -rf $(addprefix $(OBJ_DIR), $(notdir $(OBJ)))
+
+# Not a target:
+.f:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (built-in):
+	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+# Not a target:
+.info:
+#  Builtin rule
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/ft_strsdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.2457913
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strdups.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:19.4509436
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwlenrev.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:17.6039784
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strskipr.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:21.8295486
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/ft_strwsplit.o:
+#  Implicit rule search has been done.
+#  Last modified 2020-02-29 14:33:22.6226531
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=260/1024=25%, Rehash=0, Collisions=21023/95816=22%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 76 (75) / strings = 27465 / storage = 614132 B / avg = 22 B
+# current buf: size = 8162 B / used = 2805 B / count = 129 / avg = 21 B
+# other used: total = 605970 B / count = 27336 / avg = 22 B
+# other free: total = 823 B / max = 22 B / min = 1 B / avg = 10 B
+
+# strcache performance: lookups = 100001 / hit rate = 72%
+# hash-table stats:
+# Load=27465/32768=84%, Rehash=2, Collisions=107431/123045=87%
+# Finished Make data base on Sat Feb 29 14:41:50 2020
+
