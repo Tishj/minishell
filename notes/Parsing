@@ -1,0 +1,54 @@
+/* 
+**	Brace Expansion:			Expansion of expressions within braces.
+**	Tilde Expansion:			Expansion of the ~ character.
+**	Shell Parameter Expansion:	How Bash expands variables to their values.
+**	Command Substitution:	  	Using the output of a command as an argument.
+**	Arithmetic Expansion:	  	How to use arithmetic in shell expansions.
+**	Process Substitution:		A way to write and read to and from a command.
+**	Word Splitting:				How the results of expansion are split into separate arguments.
+**	Filename Expansion:			A shorthand for specifying filenames matching patterns.
+**	Quote Removal:				How and when quote characters are removed from words
+*/
+
+---------------------------------------------------------------------------
+								BRACE
+---------------------------------------------------------------------------
+
+- NOT APPLICABLE TO MINISHELL!
+
+START{sequence,sequence2,..}END
+
+START and END are optional.
+Example use:
+
+a{b,c,d}e	=	abe ace ade
+
+---------------------------------------------------------------------------
+								TILDE
+---------------------------------------------------------------------------
+
+The expansion of the ~ character.
+
+~		=	$HOME
+~fred	=	$HOME of fred
+~+		=	$PWD
+~-		=	$OLDPWD
+
+---------------------------------------------------------------------------
+								SHELL PARAMETER
+---------------------------------------------------------------------------
+
+The use of $ introduces parameter expansion
+
+$HOME expands to the environment variable HOME
+
+- NOT APPLICABLE TO MINISHELL!
+$ can be optionally followed by braces to protect the string for characters that follow it
+
+---------------------------------------------------------------------------
+								ARITHMETIC
+---------------------------------------------------------------------------
+
+- NOT APPLICABLE TO MINISHELL!
+
+---------------------------------------------------------------------------

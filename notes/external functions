@@ -1,0 +1,338 @@
+
+~*~*~*~*~*~*~*~*~*~*~*~*~* -- MINISHELL NOTES -- ~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+PID = Process ID
+PGID = Process Group ID
+extern char **environ	<-- this is how to get the existing environment variables.
+
+---------------------------------------------------------------------------
+								FORK
+---------------------------------------------------------------------------
+
+Program == executable.
+Process == a running executable.
+
+Fork creates a new process by duplicating the calling process.
+- the 'child' process is the newly created process.
+- the 'parent' process is the calling process.
+
+#include <sys/types.h>
+#include <unistd.h>
+
+pid_t	fork(void);
+
+Since fork creates a second process, it will return to both processes.
+- child: 0
+- parent: PID of the 'child'
+
+---------------------------------------------------------------------------
+								WAIT
+---------------------------------------------------------------------------
+
+Wait will block the execution of the calling process until one of it's children terminates
+the int given to the function (int *wstatus) will then contain the exit status of that process
+and wait itself will return the PID of the process that ended.
+
+pid_t	wait(int *wstatus);
+
+---------------------------------------------------------------------------
+								WAITPID
+---------------------------------------------------------------------------
+
+Waitpid is similar to Wait with the added option to specify the processes it will monitor,
+and also adding more state changes other than termination.
+
+pid_t waitpid(pid_t pid, int *wstatus, int options);
+
+PID:
+< - 1		=	child process whose PGID is equal to the absolute value of PID (-5 = 5)
+- 1			=	any child process
+0			=	child process whose PGID is equal to the PID of the calling process
+> 0			=	child process whose PID is equal to the value of PID
+
+OPTIONS: (0 or more flags that are OR'd together)
+- WNOHANG		=	return immediatly if no child has exited
+- WUNTRACED		=	also return if a child has exited
+- WCONTINUED	=	also return if a stopped child has been resumed with SIGCONT
+
+---------------------------------------------------------------------------
+								SIGNAL
+---------------------------------------------------------------------------
+
+Signal will catch 'signal', and respond to the signal by calling 'handler'.
+
+sighandler_t	signal(int signum, sighandler_t handler);
+
+SIGNUM:
+- SIGSEGV	=	segfault
+- SIGINT	=	interrupt (CTRL + C)
+- SIGTERM	=	terminate
+..
+
+HANDLER:
+- SIG_IGN	=	ignore
+- SIG_DFL	=	default behaviour
+- HANDLER	=	own function, that gets executed when the signal is caught.
+
+---------------------------------------------------------------------------
+								KILL
+---------------------------------------------------------------------------
+
+Kill is used to send signals (communicate) between processes
+
+int	kill(pid_t pid, int sig);
+
+PID:
+1 >		=	SIG is sent to the PID that matches PID.
+0		=	SIG is sent to every process with the same PGID of the calling process.
+-1		=	SIG is sent to every process that the calling process has permission to send signals to
+<-1	=	SIG is sent to every process whose PGID matches the absolute value of PID.
+
+SIG:
+SIGSEGV
+SIGABRT
+SIGTERM
+SIGINT
+0		=	no signal is sent, but the existence and permission checks are still performed.
+
+---------------------------------------------------------------------------
+								EXIT
+---------------------------------------------------------------------------
+
+Exit will terminate the current process immediately.
+
+void	exit(int status);
+
+In the following order:
+- It's open FD's will be closed
+- It's children are inherited by INIT
+- The process's parent is sent a SIGCHLD signal
+
+(status & 0377) is returned to the parent process as the process's exit status,
+and can be collected by the wait functions, if not collected the process will remain in a zombie state.
+
+---------------------------------------------------------------------------
+								GETCWD
+---------------------------------------------------------------------------
+
+Get current working directory;
+Fills a string pointed to by *buf with the absolute path of the current working directory for SIZE bytes.
+if the function fails because SIZE is too small, errno is set to ERANGE, and you should retry with a bigger SIZE.
+
+char	*getcwd(char *buf, size_t size);
+
+BUF:
+- Character array that should be malloc't (stack would work but in case of error this cant be easily made bigger).
+
+SIZE:
+- The amount of bytes malloc't to the character array.
+
+RETURN:
+- A pointer to the malloc't array given to BUF or NULL in case of error.
+
+If the error is caused by SIZE being too small, errno is set to ERANGE,
+and you should try again with a bigger SIZE.
+
+---------------------------------------------------------------------------
+								CHDIR
+---------------------------------------------------------------------------
+
+Change the calling process's current working directory to the directory PATH
+
+int	chdir(const char *path);
+
+PATH:
+- Absolute path of the directory to change the current working directory to.
+
+RETURN:
+0		=	Succesfully changed.
+-1		=	Error, errno is set.
+
+ERRNO:
+- EACCES	=	Search permission denied.
+- EFAULT	=	Path points outside your accessible address space.
+- EIO		=	Input, Output error occured.
+- ELOOP	=	Too many symbolic links.
+- ENAMETOOLONG =	Path is too long.
+- ENOENT	=	Doesn't exist.
+- ENOMEM	=	Insufficient memory.
+- ENOTDIR	=	Not a directory.
+
+===========================================================================
+---------------------------------------------------------------------------
+								- STAT FAMILY -
+---------------------------------------------------------------------------
+===========================================================================
+								STAT
+---------------------------------------------------------------------------
+
+Stat returns information about the file pointed to by PATHNAME,
+storing that information in STATBUF.
+
+int	stat(const char *pathname, struct stat *statbuf);
+
+PATHNAME:
+- The path to the file you want to stat.
+
+STATBUF:
+- Pointer to a stat struct that gets filled when the function is called.
+
+---------------------------------------------------------------------------
+								LSTAT
+---------------------------------------------------------------------------
+
+Lstat is similar to stat, except it returns information about the symbolic link itself,
+if PATHNAME is a symbolic link.
+
+int lstat(const char *pathname, struct stat *statbuf);
+
+---------------------------------------------------------------------------
+								FSTAT
+---------------------------------------------------------------------------
+
+Fstat is similar to stat, except it doesnt use a PATHNAME to retrieve the file,
+but instead uses a FD.
+
+int	fstat(int fd, struct stat *statbuf);
+
+---------------------------------------------------------------------------
+
+RETURN:
+0		=	succesfully executed the function.
+-1		=	error, errno is set.
+
+ERRNO:
+- EBAD
+
+===========================================================================
+---------------------------------------------------------------------------
+								EXECVE
+---------------------------------------------------------------------------
+
+Execve replaces the calling process with the program FILENAME,
+supplying the program ARGV as its arguments and ENVP as its environment variables.
+
+int	execve(const char *filename, char *const argv[], char *const envp[]);
+
+FILENAME:
+- Program to execute.
+
+ARGV:
+- Arguments.
+
+ENVP:
+- Environment variables.
+
+Memory mappings (malloc) are not preserved when execve is called.
+
+RETURN:
+-	=	No return if succesfull.
+-1	=	Error, errno is set.
+
+---------------------------------------------------------------------------
+								DUP
+---------------------------------------------------------------------------
+
+Duplicate a given OLDFD to the lowest numbered available FD-number
+
+- Used for redirecting (input/output)file streams
+
+int	dup(int oldfd);
+
+---------------------------------------------------------------------------
+								DUP2
+---------------------------------------------------------------------------
+
+Duplicate a given OLDFD to the FD pointed to by NEWFD,
+if NEWFD is already in use, it is closed beforehand.
+
+- Used for redirecting (input/output)file streams
+
+int	dup2(int oldfd, int newfd);
+
+---------------------------------------------------------------------------
+								PIPE
+---------------------------------------------------------------------------
+
+Used to create a pipe.
+A pipe is essentially 2 FD's that are connected, one for reading and one for writing.
+
+int pipe(int pipefd[2]);
+
+PIPEFD: (int array of size 2)
+[0]	=	Reading end of the pipe.
+[1] =	Write end of the pipe.
+
+RETURN:
+0	=	Succesfully created pipe.
+-1	=	Error, errno is set.
+
+(generally redirected with dup/dup2 to replace stdin/stdout temporarily)
+
+RTFM for the errno values.
+
+---------------------------------------------------------------------------
+								OPENDIR
+---------------------------------------------------------------------------
+
+Opendir opens a directory stream and returns a pointed to this directory stream.
+
+DIR	*opendir(const char *name);
+
+NAME:
+- Directory name to open.
+
+RETURN:
+- Pointer to a DIR struct.
+
+---------------------------------------------------------------------------
+								READDIR
+---------------------------------------------------------------------------
+
+Readdir returns a DIRENT pointer from the directory stream DIR.
+
+struct	dirent *readdir(DIR *dirp);
+
+DIRP:
+- Directory to read from.
+
+Returns a dirent pointer from the DIR, increasing the pointer to the next dirent.
+
+---------------------------------------------------------------------------
+								CLOSEDIR
+---------------------------------------------------------------------------
+
+Closedir closes a DIR directory stream.
+
+int	closedir(DIR *dirp);
+
+DIRP:
+- DIR pointer.
+
+Closes the DIR pointer, returns 0 on succes, -1 on error.
+
+---------------------------------------------------------------------------
+								STRERROR
+---------------------------------------------------------------------------
+
+Return string describing error number.
+
+char	*strerror(int errnum)
+
+ERRNUM:
+- Error code.
+
+RETURN:
+- Pointer to string containing information about the error.
+
+This string should never be modified, only by subsequent calls to strerror
+or the family of strerror functions.
+
+---------------------------------------------------------------------------
+								ERRNO
+---------------------------------------------------------------------------
+
+An extern int that is used to convey error messages between function calls
+this integer can be checked in the event of an error to find out the exact type of error that occured.
+
+---------------------------------------------------------------------------

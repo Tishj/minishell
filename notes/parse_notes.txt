@@ -1,0 +1,11 @@
+\d\g is seen as dg
+
+we can use negative values to distinguish between something
+
+either for \
+or for quotes
+
+loop through the string:
+
+when a '\' is encountered, flip its value and treat the next character as a literal (will be skipped when looking for quotes)
+
