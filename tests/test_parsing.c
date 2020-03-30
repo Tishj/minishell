@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 15:34:18 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 14:22:14 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 20:57:40 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,7 @@ char	*ft_wordsplit(char *str)
 
 	if (str)
 		buff = str;
+	printf("tokenbuffer: %s\n", buff);
 	if (*buff == '\0')
 		return (NULL);
 	ret = buff;
@@ -233,6 +234,7 @@ char	**parsing(char *input)
 	i = 0;
 	args = ft_calloc(sizeof(char *), blocks + 1);
 	program = ft_wordsplit(input);
+	printf("program token: %s\n", program);
 	program = get_abs_path(program);
 	args[i] = program;
 	if (!args[i])

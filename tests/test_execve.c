@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/22 19:39:52 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 14:32:09 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 20:51:58 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,7 @@ long long	ft_str2cmpstr(const char **str2, char *str)
 	return (-1);
 }
 
-/*
-**	varname: an environment variable name
-**
-**	returns:
-**	the value portion of the environment variable requested || NULL
-*/
-char	*get_envvar_value(char *varname)
-{
-	size_t	i;
-	size_t	namelen;
 
-	i = 0;
-	namelen = ft_strlen(varname);
-	while (environ[i])
-	{
-		if (ft_strncmp(environ[i], varname, namelen) == 0)
-			return (environ[i] + namelen + 1);
-		i++;
-	}
-	return (NULL);
-}
 
 /*
 **	program: a token of wordsplit (treated as STACK)
@@ -126,7 +106,7 @@ char	*get_abs_path(char *program)
 	builtin = is_builtin(program);
 	if (builtin != -1)
 		return (ft_strdup(program));
-	path = get_envvar_value("PATH");
+	path = get_envvar_value(environ, "PATH");
 	if (!path)
 		return (NULL);
 	path = ft_strdup(path);
@@ -151,6 +131,7 @@ void	fork_and_exec(char **args)
 void	exec_builtin(char **args, int id)
 {
 	t_builtin builtins[] = {
+	[ENV] = &ft_env,
 	[PWD] = &ft_pwd,
 	[CD] = &ft_cd};
 
@@ -200,12 +181,15 @@ int		main(void)
 {
 	char	*input;
 	char	**args;
+//	char	**env;
 
+//	env = ft_str2dup(environ);
 	input = NULL;
 	args = NULL;
 	while (1)
 	{
 		ft_fdstrc(1, &input, '\n');
+//		ft_strprint(input);
 		args = parsing(input);
 		run_program(args);
 		free(input);
