@@ -6,17 +6,79 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 15:34:18 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/22 23:36:41 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 14:22:14 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*
-**	Modified strprint, printing only the positive characters
-**	Since we flipped a bunch of characters to negative
-**	we have essentially removed them from the string
-*/
+size_t	ft_strlenr(char *str, char rstart, char rend)
+{
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = 0;
+	while (str[i])
+	{
+		if (str[i] >= rstart && str[i] <= rend)
+			len++;
+		i++;
+	}
+	return (len);
+}
+
+char	*ft_strdupr(char *orig, char rstart, char rend)
+{
+	size_t	i;
+	size_t	len;
+	char	*new;
+
+	len = ft_strlenr(orig, rstart, rend);
+	i = 0;
+	new = malloc(sizeof(char) * (len + 1));
+	if (!new)
+		return (NULL);
+	while (*orig)
+	{
+		if (*orig >= rstart && *orig <= rend)
+		{
+			new[i] = *orig;
+			i++;
+		}
+		orig++;
+	}
+	new[i] = 0;
+	return (new);
+}
+
+char	**ft_str2clean(char **orig)
+{
+	char	**new;
+	size_t	len;
+	size_t	i;
+
+	if (!orig)
+		return (NULL);
+	len = ft_str2len(orig);
+	new = malloc(sizeof(char *) * (len + 1));
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (orig[i])
+	{
+		new[i] = ft_strdupr(orig[i], (char)0, (char)127);
+		if (!new[i])
+		{
+			ft_str2del(new);
+			return (orig);
+		}
+		i++;
+	}
+	ft_str2del(orig);
+	new[i] = 0;
+	return (new);
+}
 
 char	**ft_str2addn(char **orig, size_t add)
 {
@@ -38,6 +100,7 @@ char	**ft_str2addn(char **orig, size_t add)
 	return (new);
 }
 
+//obsolete, used to debug wordsplit.
 void	ft_modstrprint(char *str)
 {
 	size_t	size;
@@ -57,7 +120,6 @@ void	ft_modstrprint(char *str)
 **	Loop until the first unescaped ", flip it to negative
 **	Escape $,\n,`," when appropriate.
 */
-
 int		ft_stringquote(char *str)
 {
 	char	last;
@@ -83,7 +145,6 @@ int		ft_stringquote(char *str)
 **	Loop until the next ' and flip it to negative
 **	Flipping escape characters to negative aswell.
 */
-
 int		ft_literalquote(char *str)
 {
 	char	last;
@@ -117,7 +178,6 @@ int		ft_literalquote(char *str)
 **	return buff and increase buff to (buff + i + 1)
 **	similar to strtok
 */
-
 int		ft_splitter(char *buff)
 {
 	size_t	i;
@@ -142,7 +202,6 @@ int		ft_splitter(char *buff)
 /*
 **	Splitter setup, setting buff, preparing ret etc..
 */
-
 char	*ft_wordsplit(char *str)
 {
 	static char	*buff;
@@ -158,24 +217,32 @@ char	*ft_wordsplit(char *str)
 	return ((buff - 1) - ret) ? ret : ft_wordsplit(NULL);
 }
 
+/*
+**	Receive a string, that has been gotten with fdstrc through STDIN <- malloced.
+**	Create a 2d string for the size of strclenb(input)
+**	returns all the arguments (char **) needed to call an executable or builtin.
+*/
 char	**parsing(char *input)
 {
 	char	**args;
 	char	*program;
 	size_t	i;
+	size_t	blocks;
 
+	blocks = ft_strclenb(input, ' ');
 	i = 0;
-	args = ft_calloc(sizeof(char *), (ft_strclenb(input, ' ') + 1));
+	args = ft_calloc(sizeof(char *), blocks + 1);
 	program = ft_wordsplit(input);
 	program = get_abs_path(program);
-	if (!program)
-		return (NULL); //error
-	args[i] = ft_strdup(program);
+	args[i] = program;
+	if (!args[i])
+		printf("Yep, this is not good\n");
 	while (args[i])
 	{
 		i++;
-		args[i] = ft_wordsplit(NULL);
+		args[i] = ft_strdup(ft_wordsplit(NULL));
 	}
 	args[i] = 0;
+	args = ft_str2clean(args);
 	return (args);
 }

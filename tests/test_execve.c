@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/22 19:39:52 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/22 23:35:04 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 14:32:09 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,34 @@ char	*ft_straddchar(char *str, char c)
 	return (new);
 }
 
-long long	ft_str2cmpstr(char **str2, char *str)
+/*
+**	str2: a string array to search in
+**	str: string to look for
+**
+**	returns:
+**	the index of str2 that matches str || -1
+*/
+long long	ft_str2cmpstr(const char **str2, char *str)
 {
-	size_t	i;
+	long long	i;
 
 	i = 0;
 	while (str2[i])
 	{
-		if (ft_strcmp(str2[i], str) == 0)
-			return ((long long)i);
+//		printf("i = %lld, str2[i] = %s\n", i, str2[i]);
+		if (ft_strcmp((char *)str2[i], str) == 0)
+			return (i);
 		i++;
 	}
 	return (-1);
 }
 
+/*
+**	varname: an environment variable name
+**
+**	returns:
+**	the value portion of the environment variable requested || NULL
+*/
 char	*get_envvar_value(char *varname)
 {
 	size_t	i;
@@ -58,6 +72,16 @@ char	*get_envvar_value(char *varname)
 	return (NULL);
 }
 
+/*
+**	program: a token of wordsplit (treated as STACK)
+**	path: the entire value portion of the envvar PATH
+**
+**	returns:
+**	if BUILTIN ->	NULL
+**	else ->			abs_path/program
+**
+**	BUILTIN - given 'program' is not an executable
+*/
 char	*get_file_path(char *program, char *path)
 {
 	char		*filepath;
@@ -72,35 +96,51 @@ char	*get_file_path(char *program, char *path)
 		filepath = ft_strdup(token);
 		filepath = ft_straddchar(filepath, '/');
 		filepath = ft_strsuffix(filepath, program);
-//		printf("program: %s\n", filepath);
 		result = stat(filepath, &file);
 		if (result != -1)
-			return (filepath);
+			break ;
 		token = ft_strctok(NULL, ':');
 		free(filepath);
 		filepath = NULL;
 	}
+	free(path);
 	return (filepath);
 }
 
+/*
+**	program: a token of wordsplit (treated as STACK)
+**
+**	returns:
+**	if BUILTIN ->		strdup of program. (HEAP)
+**	if EXECUTABLE ->	abs_path/program. (HEAP)
+**	else ->				NULL
+**
+**	BUILTIN -			the given 'program' is not an executable
+**	EXECUTABLE -		the given 'program' could be found in one of the directories in PATH
+*/
 char	*get_abs_path(char *program)
 {
-	char	*path;
+	char		*path;
+	long long	builtin;
 
+	builtin = is_builtin(program);
+	if (builtin != -1)
+		return (ft_strdup(program));
 	path = get_envvar_value("PATH");
 	if (!path)
-		return (NULL); //error
+		return (NULL);
 	path = ft_strdup(path);
 	program = get_file_path(program, path);
 	if (!program)
-		printf("Could not find any executable by that name\n");
-	free(path);
+	{
+		printf("No executable nor builtin by that name could be found.\n");
+		return (NULL);
+	}
 	return (program);
 }
 
 void	fork_and_exec(char **args)
 {
-//	ft_str2print(args);
 	if (fork() == 0)
 	{
 		printf("Trying to run a program\n");
@@ -108,10 +148,20 @@ void	fork_and_exec(char **args)
 	}
 }
 
-void	run_program(char **args)
+void	exec_builtin(char **args, int id)
 {
-	size_t		builtin;
-	static char	*builtins[] = {
+	t_builtin builtins[] = {
+	[PWD] = &ft_pwd,
+	[CD] = &ft_cd};
+
+	printf("Executing builtin!\n");
+	builtins[id](ft_str2len(args), args, environ);
+}
+
+long long	is_builtin(char *program)
+{
+	long long			id;
+	static const char	*builtins[] = {
 	[CD] = "cd",
 	[ECHO] = "echo",
 	[PWD] = "pwd",
@@ -119,15 +169,32 @@ void	run_program(char **args)
 	[UNSET] = "unset",
 	[ENV] = "env",
 	[EXIT] = "exit",
+	[7] = NULL,
 	};
 
+	return(ft_str2cmpstr(builtins, program));
+}
+
+void	run_program(char **args)
+{
+	long long	builtin;
+
 	if (!args)
-		return ; //error
-//	builtin = ft_str2cmpstr(builtins, args[0]);
-//	if (!builtin)
-	fork_and_exec(args);
+		return ;
+	builtin = is_builtin(args[0]);
+	if (builtin == -1)
+		fork_and_exec(args);
+	else
+		exec_builtin(args, builtin);
 	return ;
 }
+
+/*
+**	Get the input with fdstrc
+**	get a 2d string from it containing:
+**	[0] = A program with it's absolute path prefixed to it.
+**	[..] = all the program's arguments
+*/
 
 int		main(void)
 {
@@ -135,7 +202,7 @@ int		main(void)
 	char	**args;
 
 	input = NULL;
-//	ft_str2print(environ);
+	args = NULL;
 	while (1)
 	{
 		ft_fdstrc(1, &input, '\n');
