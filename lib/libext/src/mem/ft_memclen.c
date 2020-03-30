@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/24 18:44:30 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/02/27 10:54:44 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/02/24 18:48:39 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_memclen(void *mem, char c, size_t n)
 
 	bytes = (char *)mem;
 	i = 0;
-	while (i < n && !ft_chrmatchc(bytes[i], c))
+	while (i < n && ft_chrmatchc(bytes[i], c))
 		i++;
 	return (i);
 }

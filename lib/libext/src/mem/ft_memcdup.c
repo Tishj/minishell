@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/24 16:51:30 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/02/27 10:45:50 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/02/24 18:47:46 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ HEAP	*ft_memcdup(void *mem, size_t n, char c)
 	size_t	i;
 	HEAP	*new;
 	char	*bytes;
+	char	limit;
 
 	i = 0;
 	if (!mem)
 		return (NULL);
-	n = ft_memclen(mem, n, c);
+	limit = ft_memclen(mem, n, c);
 	bytes = (char *)mem;
+	n = (limit < n) ? limit : n;
 	new = ft_calloc(sizeof(char), n);
 	if (!new)
 		return (NULL);

@@ -6,11 +6,16 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/12 19:42:37 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/02/24 20:40:07 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/17 23:27:35 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libext.h"
+
+/*
+**	Atoi, putting the value in VAL,
+**	returning a pointer to the remainder of the string
+*/
 
 char	*ft_strnump(char *str, int *val)
 {

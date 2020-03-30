@@ -6,7 +6,7 @@
 #    By: tbruinem <tbruinem@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/02/11 23:29:26 by tbruinem       #+#    #+#                 #
-#    Updated: 2020/02/29 22:22:59 by tbruinem      ########   odam.nl          #
+#    Updated: 2020/03/30 21:05:49 by tbruinem      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ ifdef BUFFER_SIZE
 endif
 
 STR_DIR = str/
+PRINTF_DIR = printf/
 CHR_DIR = chr/
 MEM_DIR = mem/
 NUM_DIR = num/
@@ -47,6 +48,14 @@ SRC =	$(addprefix $(CHR_DIR), ft_chrmatchc.c \
 		ft_chrsprint.c \
 		ft_chrswapc.c \
 		ft_chrmatchw.c) \
+		$(addprefix $(PRINTF_DIR), ft_printf.c) \
+		$(addprefix $(TREE_DIR), ft_treeaddparent.c \
+		ft_treeaddchild.c \
+		ft_treeaddright.c \
+		ft_treeaddleft.c \
+		ft_treenew.c \
+		ft_treeprint.c \
+		ft_treebfirst.c) \
 		$(addprefix $(FD_DIR), ft_fdchar.c \
 		ft_fdstrc.c) \
 		$(addprefix $(LST_DIR), ft_lstindex.c \
@@ -59,6 +68,7 @@ SRC =	$(addprefix $(CHR_DIR), ft_chrmatchc.c \
 		ft_lstprev.c \
 		ft_lstptr.c \
 		ft_lstrev.c \
+		ft_lstconvstr2.c \
 		ft_lstsuffix.c \
 		ft_lstdel.c \
 		ft_lstcmp.c \
@@ -79,6 +89,10 @@ SRC =	$(addprefix $(CHR_DIR), ft_chrmatchc.c \
 		ft_plstprefix.c \
 		ft_lstswap.c) \
 		$(addprefix $(NUM_DIR), ft_numprint.c \
+		ft_numlenu_base.c \
+		ft_numstru_base.c \
+		ft_numlen_base.c \
+		ft_numstr_base.c \
 		ft_numprintbase.c \
 		ft_absnum.c) \
 		$(addprefix $(MEM_DIR), ft_calloc.c \
@@ -102,17 +116,21 @@ SRC =	$(addprefix $(CHR_DIR), ft_chrmatchc.c \
 		ft_data_limit.c \
 		ft_data_parse.c \
 		ft_strlenf.c) \
+		ft_strtrunc.c \
+		ft_strchr.c \
 		ft_strsep.c \
 		ft_strtok.c \
 		ft_str2len.c \
+		ft_strctok.c \
 		ft_str2print.c \
 		ft_stradd.c \
 		ft_straddc.c \
 		ft_straddn.c \
 		ft_straddr.c \
 		ft_strcat.c \
+		ft_strreplace.c \
+		ft_str2convlst.c \
 		ft_strcatc.c \
-		ft_strctok.c \
 		ft_strcmp.c \
 		ft_strccmp.c \
 		ft_strncmp.c \

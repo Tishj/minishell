@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/27 23:04:09 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 14:29:15 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 16:17:41 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,19 @@ enum	e_builtin
 	EXIT,
 };
 
+char		*ft_strreplace(char *org, char *before, char *after);
+
 typedef void (*t_builtin)(int argc, char **argv, char **env);
 void		ft_cd(int argc, char **argv, char **env);
 void		ft_pwd(int argc, char **argv, char **env);
+void		ft_env(int argc, char **argv, char **env);
+
+char		*get_envvar(char **env, char *varname);
+char		*get_envvar_value(char **env, char *varname);
+long long	is_builtin(char *program);
 
 int			ft_escaper(char *str, char *last);
 char		**parsing(char *input);
 char		*get_abs_path(char *program);
-long long	is_builtin(char *program);
 
 #endif
