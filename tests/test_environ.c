@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/17 19:39:04 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 17:07:55 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/31 00:05:42 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,15 @@ void	print_ptr(char **env)
 
 int		main(void)
 {
-	char	**env;
-	char	*pwd;
+	t_list	*env;
+	t_list	*envvar;
 
-	env = ft_str2dup(environ);
-	print_ptr(env);
-//	ft_str2print(env);
-	printf("BEFORE---------------------------------------------------------------------------------------------------------------------------------------------<\n\n\n");
-	printf("\n\n\n");
-	pwd = get_envvar(env, "LS_COLORS");
-	printf("length: %ld\n", ft_strlen(pwd));
-	return (0);
-	printf("Retrieved PWD: ptr: %p | var: %s\n\n\n", pwd, pwd);
-	free(pwd);
-//	return (0);
-	pwd = ft_strprefix(ft_strdup("testerino_test_test"), "PWD=");
-	printf("%p | %s\n", pwd, pwd);
-//	print_ptr(env);
-	printf("AFTER----------------------------------------------------------------------------------------------------------------------------------------------<\n\n\n");
-//	ft_str2print(env);
+	env = ft_str2convlst(environ);
+	envvar = ft_lstnlookup(env, "PWD");
+	if (envvar)
+		printf("string: %s\n", (char *)envvar->item);
+	free(envvar->item);
+	envvar->item = ft_strprefix(ft_strdup("/mnt/iets/anders/dan/normaal"), "PWD=");
+	ft_lstprint(env, ft_strprint);
 	return (0);
 }

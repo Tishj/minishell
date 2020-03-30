@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/11 23:31:23 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 21:05:03 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/31 00:01:42 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,9 +255,10 @@ void		ft_dlstswap(t_dlist **head, t_dlist *a, t_dlist *b);
 
 char		**ft_lstconvstr2(t_list *root);
 t_list		*ft_lstlookup(t_list *root, char *str);
+t_list		*ft_lstnlookup(t_list *root, char *str);
 void		ft_lstinfix(t_list **list, t_list *add, size_t n);
 long long	ft_lstindex(t_list *list, t_list *elem);
-void		ft_lstprint(t_list *head, void (*p)(char *item));
+void		ft_lstprint(t_list *head, void (*p)(void *item));
 void		ft_lstdel(t_list **list, t_list *elem, void (*del)(void *item));
 char		ft_lstcmp(void *a, void *b, char (*cmp)(void *item1, void *item2));
 size_t		ft_lstlen(t_list *list);

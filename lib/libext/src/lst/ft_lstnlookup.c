@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strdup.c                                        :+:    :+:            */
+/*   ft_lstnlookup.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/02/12 01:54:34 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/31 00:37:52 by tbruinem      ########   odam.nl         */
+/*   Created: 2020/03/30 20:11:50 by tbruinem       #+#    #+#                */
+/*   Updated: 2020/03/31 00:01:08 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libext.h"
 
-char	*ft_strdup(char *str)
+t_list	*ft_lstnlookup(t_list *root, char *str)
 {
 	size_t	len;
-	size_t	i;
-	char	*new;
 
-	i = 0;
-	if (!str)
-		return (NULL);
 	len = ft_strlen(str);
-	new = ft_calloc(sizeof(char), (len + 1));
-	if (!new)
-		return (NULL);
-	while (i < len)
+	while (root)
 	{
-		new[i] = str[i];
-		i++;
+		if (ft_strncmp((char *)root->item, str, len) == 0)
+			return (root);
+		root = root->next;
 	}
-	new[i] = 0;
-	return (new);
+	return (root);
 }

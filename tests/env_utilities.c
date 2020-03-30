@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/30 16:22:27 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 16:34:46 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 21:25:41 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,12 @@ char	*get_envvar(char **env, char *varname)
 */
 char	*get_envvar_value(char **env, char *varname)
 {
-	size_t	i;
 	size_t	namelen;
 	char	*envvar;
 
 	namelen = ft_strlen(varname);
 	envvar = get_envvar(env, varname);
 	if (envvar)
-		return (env[i] + namelen + 1);
+		return (envvar + namelen + 1);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/19 15:34:18 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 20:57:40 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 21:29:45 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,10 @@ char	**parsing(char *input)
 	program = get_abs_path(program);
 	args[i] = program;
 	if (!args[i])
+	{
 		printf("Yep, this is not good\n");
+		return (NULL);
+	}
 	while (args[i])
 	{
 		i++;

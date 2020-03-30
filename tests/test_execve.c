@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/22 19:39:52 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 20:51:58 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/31 00:41:36 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,16 +119,20 @@ char	*get_abs_path(char *program)
 	return (program);
 }
 
-void	fork_and_exec(char **args)
+void	fork_and_exec(char **args, t_list *env)
 {
+	char	**envp;
+
+	envp = ft_lstconvstr2(env);
 	if (fork() == 0)
 	{
 		printf("Trying to run a program\n");
-		execve(args[0], args, environ);
+		execve(args[0], args, envp);
 	}
+	ft_str2del(envp);
 }
 
-void	exec_builtin(char **args, int id)
+void	exec_builtin(char **args, int id, t_list *env)
 {
 	t_builtin builtins[] = {
 	[ENV] = &ft_env,
@@ -136,12 +140,11 @@ void	exec_builtin(char **args, int id)
 	[CD] = &ft_cd};
 
 	printf("Executing builtin!\n");
-	builtins[id](ft_str2len(args), args, environ);
+	builtins[id](ft_str2len(args), args, env);
 }
 
 long long	is_builtin(char *program)
 {
-	long long			id;
 	static const char	*builtins[] = {
 	[CD] = "cd",
 	[ECHO] = "echo",
@@ -156,7 +159,7 @@ long long	is_builtin(char *program)
 	return(ft_str2cmpstr(builtins, program));
 }
 
-void	run_program(char **args)
+void	run_program(char **args, t_list *env)
 {
 	long long	builtin;
 
@@ -164,9 +167,9 @@ void	run_program(char **args)
 		return ;
 	builtin = is_builtin(args[0]);
 	if (builtin == -1)
-		fork_and_exec(args);
+		fork_and_exec(args, env);
 	else
-		exec_builtin(args, builtin);
+		exec_builtin(args, builtin, env);
 	return ;
 }
 
@@ -181,9 +184,11 @@ int		main(void)
 {
 	char	*input;
 	char	**args;
-//	char	**env;
+	t_list	*env;
 
-//	env = ft_str2dup(environ);
+	env = ft_str2convlst(environ);
+	ft_lstprint(env, ft_strprint);
+//	printf("\n\n\n");
 	input = NULL;
 	args = NULL;
 	while (1)
@@ -191,7 +196,8 @@ int		main(void)
 		ft_fdstrc(1, &input, '\n');
 //		ft_strprint(input);
 		args = parsing(input);
-		run_program(args);
+		if (args)
+			run_program(args, env);
 		free(input);
 		input = NULL;
 	}

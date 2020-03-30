@@ -6,7 +6,7 @@
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/20 14:47:55 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/21 13:12:42 by tbruinem      ########   odam.nl         */
+/*   Updated: 2020/03/30 21:39:32 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strnump_base(char *str, int *val, char *base, int limit)
 	i += ft_strskipw(str);
 	n = (str[i] == '-') ? -1 : 1;
 	i = (str[i] == '-' || str[i] == '+') ? i + 1 : i;
-	while (ft_chrmatchs(str[i], base) && i < limit)
+	while (ft_chrmatchs(str[i], base) && (int)i < limit)
 	{
 		ret = (ret * base_num) + (ft_strchr(base, str[i]) - base);
 		i++;
@@ -113,7 +113,7 @@ int		ft_esc_single(char *str)
 
 int		ft_escaper(char *str, char *last)
 {
-	static t_escapef handler[127] = {
+	static const t_escapef handler[127] = {
 	['a'] = &ft_esc_single,
 	['b'] = &ft_esc_single,
 	['c'] = &ft_esc_single,
