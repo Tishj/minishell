@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_directories.c                                 :+:    :+:            */
+/*   ft_str2tokc.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/17 17:40:37 by tbruinem      #+#    #+#                 */
-/*   Updated: 2020/04/06 17:05:43 by tbruinem      ########   odam.nl         */
+/*   Created: 2020/04/02 15:06:34 by tbruinem      #+#    #+#                 */
+/*   Updated: 2020/04/06 17:06:05 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <dirent.h>
-#include <stdio.h>
+#include "minishell.h"
 
-int		main(void)
+char	**ft_str2tokc(char **input, char c)
 {
-	DIR				*directory;
-	struct dirent	*subdir;
+	static char	**buff;
+	char		**ret;
+	size_t		i;
 
-	directory = opendir("/");
-	if (!directory)
+	i = 0;
+	if (input || !buff)
+		buff = input;
+	if (buff == NULL)
+		return (NULL);
+	while (buff && buff[i] && (*buff[i] != c || !*buff[i]))
+		i++;
+	ret = buff;
+	if (buff && buff[i] && *buff[i] == c)
 	{
-		printf("Directory doesn't exist.");
-		return (1);
+		free(buff[i]);
+		buff[i] = NULL;
+		buff = &buff[i + 1];
 	}
-	while (subdir = readdir(directory))
-		printf("%s\n", subdir->d_name);
-	closedir(directory);
-	return (0);
+	else
+		buff = NULL;
+	return (ret);
 }

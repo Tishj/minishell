@@ -5,14 +5,14 @@
 /*                                                     +:+                    */
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/22 19:39:52 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/31 00:41:36 by tbruinem      ########   odam.nl         */
+/*   Created: 2020/03/22 19:39:52 by tbruinem      #+#    #+#                 */
+/*   Updated: 2020/04/06 17:05:24 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*ft_straddchar(char *str, char c)
+char		*ft_straddchar(char *str, char c)
 {
 	char	*new;
 	size_t	len;
@@ -29,30 +29,6 @@ char	*ft_straddchar(char *str, char c)
 }
 
 /*
-**	str2: a string array to search in
-**	str: string to look for
-**
-**	returns:
-**	the index of str2 that matches str || -1
-*/
-long long	ft_str2cmpstr(const char **str2, char *str)
-{
-	long long	i;
-
-	i = 0;
-	while (str2[i])
-	{
-//		printf("i = %lld, str2[i] = %s\n", i, str2[i]);
-		if (ft_strcmp((char *)str2[i], str) == 0)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
-
-
-
-/*
 **	program: a token of wordsplit (treated as STACK)
 **	path: the entire value portion of the envvar PATH
 **
@@ -62,7 +38,7 @@ long long	ft_str2cmpstr(const char **str2, char *str)
 **
 **	BUILTIN - given 'program' is not an executable
 */
-char	*get_file_path(char *program, char *path)
+char		*get_file_path(char *program, char *path)
 {
 	char		*filepath;
 	char		*token;
@@ -98,7 +74,7 @@ char	*get_file_path(char *program, char *path)
 **	BUILTIN -			the given 'program' is not an executable
 **	EXECUTABLE -		the given 'program' could be found in one of the directories in PATH
 */
-char	*get_abs_path(char *program)
+char		*get_abs_path(t_list *env, char *program)
 {
 	char		*path;
 	long long	builtin;
@@ -106,7 +82,7 @@ char	*get_abs_path(char *program)
 	builtin = is_builtin(program);
 	if (builtin != -1)
 		return (ft_strdup(program));
-	path = get_envvar_value(environ, "PATH");
+	path = (char *)set_envvar(&env, "PATH", NULL)->item;
 	if (!path)
 		return (NULL);
 	path = ft_strdup(path);
@@ -119,7 +95,7 @@ char	*get_abs_path(char *program)
 	return (program);
 }
 
-void	fork_and_exec(char **args, t_list *env)
+void		fork_and_exec(char **args, t_list *env)
 {
 	char	**envp;
 
@@ -132,14 +108,18 @@ void	fork_and_exec(char **args, t_list *env)
 	ft_str2del(envp);
 }
 
-void	exec_builtin(char **args, int id, t_list *env)
+void		exec_builtin(char **args, int id, t_list *env)
 {
-	t_builtin builtins[] = {
+	static const t_builtin builtins[] = {
 	[ENV] = &ft_env,
 	[PWD] = &ft_pwd,
+	[ECHO] = &ft_echo,
+	[EXPORT] = &ft_export,
+	[UNSET] = &ft_unset,
+	[EXIT] = &ft_exit,
 	[CD] = &ft_cd};
 
-	printf("Executing builtin!\n");
+//	printf("Executing builtin!\n");
 	builtins[id](ft_str2len(args), args, env);
 }
 
@@ -159,7 +139,7 @@ long long	is_builtin(char *program)
 	return(ft_str2cmpstr(builtins, program));
 }
 
-void	run_program(char **args, t_list *env)
+void		run_program(char **args, t_list *env)
 {
 	long long	builtin;
 
@@ -180,24 +160,27 @@ void	run_program(char **args, t_list *env)
 **	[..] = all the program's arguments
 */
 
-int		main(void)
+int			main(void)
 {
 	char	*input;
 	char	**args;
+	char	**tokens;
 	t_list	*env;
 
 	env = ft_str2convlst(environ);
-	ft_lstprint(env, ft_strprint);
-//	printf("\n\n\n");
 	input = NULL;
 	args = NULL;
 	while (1)
 	{
 		ft_fdstrc(1, &input, '\n');
-//		ft_strprint(input);
-		args = parsing(input);
-		if (args)
+		input = specialchar_sep(input, ";|");
+		tokens = parsing(env, input);
+		args = ft_str2tokc(tokens, ';');
+		while (args)
+		{
 			run_program(args, env);
+			args = ft_str2tokc(NULL, ';');
+		}
 		free(input);
 		input = NULL;
 	}

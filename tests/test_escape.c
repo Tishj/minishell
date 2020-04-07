@@ -5,14 +5,14 @@
 /*                                                     +:+                    */
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/20 14:47:55 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 21:39:32 by tbruinem      ########   odam.nl         */
+/*   Created: 2020/03/20 14:47:55 by tbruinem      #+#    #+#                 */
+/*   Updated: 2020/04/06 17:05:35 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-typedef int (*t_escapef)(char *str);
+typedef	int	(*t_escapef)(char *str);
 
 char	*ft_strchr(char *str, char c)
 {

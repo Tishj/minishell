@@ -1,0 +1,1 @@
+gcc dir_utilities.c printmem.c  specialchar_sep.c  ft_str2tokc.c  str2_utilities.c ft_strreplace.c test_builtin.c env_utilities.c test_execve.c test_escape.c test_parsing.c -I ../include/ -L ../lib/libext/ -I ../lib/libext/incl/ -lext -g -fsanitize=address

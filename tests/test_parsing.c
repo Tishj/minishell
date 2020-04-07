@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/19 15:34:18 by tbruinem       #+#    #+#                */
-/*   Updated: 2020/03/30 21:29:45 by tbruinem      ########   odam.nl         */
+/*   Created: 2020/03/19 15:34:18 by tbruinem      #+#    #+#                 */
+/*   Updated: 2020/04/06 17:05:27 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ int		ft_splitter(char *buff)
 
 	i = 0;
 	last = 0;
+//	printf("splitter: %s\n", buff);
 	while (buff[i] && buff[i] != ' ')
 	{
 		if (last == '\\' && buff[i] > 0)
@@ -209,11 +210,13 @@ char	*ft_wordsplit(char *str)
 
 	if (str)
 		buff = str;
-	printf("tokenbuffer: %s\n", buff);
 	if (*buff == '\0')
 		return (NULL);
 	ret = buff;
-	buff += (ft_splitter(buff) + 1);
+	buff += ft_splitter(buff);
+	if (!*buff)
+		return (ret);
+	buff++;
 	*(buff - 1) = '\0';
 	return ((buff - 1) - ret) ? ret : ft_wordsplit(NULL);
 }
@@ -223,7 +226,7 @@ char	*ft_wordsplit(char *str)
 **	Create a 2d string for the size of strclenb(input)
 **	returns all the arguments (char **) needed to call an executable or builtin.
 */
-char	**parsing(char *input)
+char	**parsing(t_list *env, char *input)
 {
 	char	**args;
 	char	*program;
@@ -232,14 +235,14 @@ char	**parsing(char *input)
 
 	blocks = ft_strclenb(input, ' ');
 	i = 0;
-	args = ft_calloc(sizeof(char *), blocks + 1);
+	args = ft_calloc(sizeof(char *), blocks + 2);
 	program = ft_wordsplit(input);
-	printf("program token: %s\n", program);
-	program = get_abs_path(program);
-	args[i] = program;
+	if (!program)
+		return (NULL);
+	args[i] = get_abs_path(env, program);
 	if (!args[i])
 	{
-		printf("Yep, this is not good\n");
+		printf("minishell: command not found: %s\n", program);
 		return (NULL);
 	}
 	while (args[i])

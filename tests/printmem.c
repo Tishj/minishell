@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   test_directories.c                                 :+:    :+:            */
+/*   printmem.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tbruinem <tbruinem@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/03/17 17:40:37 by tbruinem      #+#    #+#                 */
-/*   Updated: 2020/04/06 17:05:43 by tbruinem      ########   odam.nl         */
+/*   Created: 2020/04/03 10:50:16 by tbruinem      #+#    #+#                 */
+/*   Updated: 2020/04/03 11:03:46 by tbruinem      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/types.h>
-#include <dirent.h>
-#include <stdio.h>
+#include "minishell.h"
 
-int		main(void)
+void	printmem(char *str)
 {
-	DIR				*directory;
-	struct dirent	*subdir;
+	size_t	i;
 
-	directory = opendir("/");
-	if (!directory)
+	i = 0;
+	while (str[i])
 	{
-		printf("Directory doesn't exist.");
-		return (1);
+		printf("str[%ld] = %c | %d | %p\n", i, str[i], (int)str[i], &str[i]);
+		i++;
 	}
-	while (subdir = readdir(directory))
-		printf("%s\n", subdir->d_name);
-	closedir(directory);
-	return (0);
+	printf("str[%ld] = %c | %d | %p\n", i, str[i], (int)str[i], &str[i]);
 }
